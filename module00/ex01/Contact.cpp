@@ -6,13 +6,26 @@ Contact::Contact(
 	std::string f3,
 	std::string f4,
 	std::string f5
-	) {
-	this->_first_name = f1;
-	this->_last_name = f2;
-	this->_nick_name = f3;
-	this->_phone_num = f4;
-	this->_darkest_secret = f5;
-}
+	) :
+		_first_name(f1),
+		_last_name(f2),
+		_nick_name(f3),
+		_phone_num(f4),
+		_darkest_secret(f5) {}
+
+// Contact::Contact(
+// 	std::string f1,
+// 	std::string f2,
+// 	std::string f3,
+// 	std::string f4,
+// 	std::string f5
+// 	) {
+// 	this->_first_name = f1;
+// 	this->_last_name = f2;
+// 	this->_nick_name = f3;
+// 	this->_phone_num = f4;
+// 	this->_darkest_secret = f5;
+// }
 
 std::string	Contact::get_first_name() const {
 	return this->_first_name;

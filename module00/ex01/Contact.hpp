@@ -1,18 +1,18 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
-#include <iostream>
+# include <iostream>
 
 class Contact
 {
 
 private:
 
-	std::string _first_name {};
-	std::string _last_name {};
-	std::string _nick_name {};
-	std::string _phone_num {};
-	std::string _darkest_secret {};
+	std::string _first_name;
+	std::string _last_name;
+	std::string _nick_name;
+	std::string _phone_num;
+	std::string _darkest_secret;
 
 public:
 
@@ -35,5 +35,16 @@ public:
 	void set_phone_num(std::string phone_num);
 	void set_darkest_secret(std::string darkest_secret);
 };
+
+// class Contact
+// {
+
+// public:
+// 	std::string _first_name {};
+// 	std::string _last_name {};
+// 	std::string _nick_name {};
+// 	std::string _phone_num {};
+// 	std::string _darkest_secret {};
+// };
 
 #endif
