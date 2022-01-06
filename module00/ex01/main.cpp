@@ -8,7 +8,8 @@ int main() {
 
 	while (true) {
 		std::cout << "Input command: ";
-		std::getline(std::cin, command);
+		if (!std::getline(std::cin, command))
+			break ;
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD") {
@@ -16,15 +17,20 @@ int main() {
 
 			std::cout << "\n==========================[ADD]=============================\n\n";
 			std::cout << "Input First Name: ";
-			std::getline(std::cin, new_contact_data[0]);
+			if (!std::getline(std::cin, new_contact_data[0]))
+				break ;
 			std::cout << "Input Last Name: ";
-			std::getline(std::cin, new_contact_data[1]);
+			if (!std::getline(std::cin, new_contact_data[1]))
+				break ;
 			std::cout << "Input Nick Name: ";
-			std::getline(std::cin, new_contact_data[2]);
+			if (!std::getline(std::cin, new_contact_data[2]))
+				break ;
 			std::cout << "Input Phone Number: ";
-			std::getline(std::cin, new_contact_data[3]);
+			if (!std::getline(std::cin, new_contact_data[3]))
+				break ;
 			std::cout << "Input Your Darkest Secret : ";
-			std::getline(std::cin, new_contact_data[4]);
+			if (!std::getline(std::cin, new_contact_data[4]))
+				break ;
 			std::cout << "\n============================================================\n";
 			Contact new_contact(new_contact_data);
 			phonebook.add_contact(new_contact);
@@ -42,7 +48,8 @@ int main() {
 			phonebook.print_all();
 			std::cout << '\n';
 			std::cout << "Input Contact Index: ";
-			std::getline(std::cin, line);
+			if (!std::getline(std::cin, line))
+				continue ;
 			std::stringstream  linestream(line);
 			linestream >> index;
 			if (index < 1 || index > phonebook.size()) {
