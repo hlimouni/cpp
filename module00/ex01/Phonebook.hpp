@@ -8,14 +8,16 @@ class Phonebook
 
 private:
 
-	const size_t _max;
 	Contact      _phonebook[8];
+	const int	 _max;
 	int          _number_of_contacts;
 
 public:
 	Phonebook();
+	int			   size() const;
 	void           add_contact(Contact& contact);
-	const Contact& get_contact(size_t index) const;
+	const Contact& get_contact(int index) const;
+	void		   print_all() const;
 
 };
 

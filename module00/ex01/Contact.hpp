@@ -2,21 +2,27 @@
 # define CONTACT_H
 
 # include <iostream>
+# include <iomanip>
+
+# define WIDTH 10
 
 class Contact
 {
 
 private:
 
+	const size_t	_width {10};
 	std::string _first_name;
 	std::string _last_name;
 	std::string _nick_name;
 	std::string _phone_num;
 	std::string _darkest_secret;
+	std::string _data[5];
 
 public:
 
 	Contact();
+	Contact(std::string fields[5]);
 	Contact(
 		std::string f1,
 		std::string f2,
@@ -34,6 +40,9 @@ public:
 	void set_nick_name(std::string nick_name);
 	void set_phone_num(std::string phone_num);
 	void set_darkest_secret(std::string darkest_secret);
+	void print_full_name(int index) const;
+	void print_info() const;
+	void replace_with(Contact &contact);
 };
 
 // class Contact
