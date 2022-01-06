@@ -11,7 +11,7 @@ class Contact
 
 private:
 
-	const size_t	_width {10};
+	const size_t	_width;
 	std::string _first_name;
 	std::string _last_name;
 	std::string _nick_name;

@@ -7,18 +7,18 @@ Contact::Contact(
 	std::string f4,
 	std::string f5
 	)
-	: _first_name(f1),
+	: _width(10),
+	  _first_name(f1),
 	  _last_name(f2),
 	  _nick_name(f3),
 	  _phone_num(f4),
-	  _darkest_secret(f5)
-	  ,_data {
-		_first_name,
-		_last_name,
-		_nick_name,
-		_phone_num,
-		_darkest_secret
-	} {}
+	  _darkest_secret(f5) {
+		_data[0] = _first_name;
+		_data[1] = _last_name;
+		_data[2] = _nick_name;
+		_data[3] = _phone_num;
+		_data[4] = _darkest_secret;
+	}
 
 std::string	Contact::get_first_name() const {
 	return this->_first_name;
@@ -76,8 +76,7 @@ void	Contact::print_full_name(int index) const {
 	std::cout << "|\n";
 }
 
-void	Contact::replace_with(Contact &contact)
-{
+void	Contact::replace_with(Contact &contact) {
 	this->_first_name = contact._first_name;
 	this->_last_name = contact._last_name;
 	this->_nick_name = contact._nick_name;
@@ -90,25 +89,26 @@ void	Contact::replace_with(Contact &contact)
 
 void	Contact::print_info() const {
 	for (int i = 0; i < 5; i++) {
-		std::cout << _data[i] << '\n';
+		if (!_data[i].empty())
+			std::cout << _data[i] << '\n';
 	}
 }
 
-Contact::Contact() {}
+Contact::Contact() : _width(10){}
 
 Contact::Contact(std::string fields[5])
-	: _first_name(fields[0]),
+	: _width(10),
+	  _first_name(fields[0]),
 	  _last_name(fields[1]),
 	  _nick_name(fields[2]),
 	  _phone_num(fields[3]),
-	  _darkest_secret(fields[4])
-	  ,_data {
-		_first_name,
-		_last_name,
-		_nick_name,
-		_phone_num,
-		_darkest_secret
-	} {}
+	  _darkest_secret(fields[4]) {
+		_data[0] = _first_name;
+		_data[1] = _last_name;
+		_data[2] = _nick_name;
+		_data[3] = _phone_num;
+		_data[4] = _darkest_secret;
+}
 // int main() 
 // {
 // 	Contact contact {"blllllalkjlksj", "lklkjlkjlkjlkjl",
