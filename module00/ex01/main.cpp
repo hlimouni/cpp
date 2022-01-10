@@ -2,6 +2,13 @@
 #include "Contact.hpp"
 #include <sstream>
 
+std::string g_input[5] = {	"Input First Name: ",
+							"Input Last Name: ",
+							"Input Nick Name: ",
+							"Input Phone Number: ",
+							"Input Your Darkest Secret : "
+						};
+
 int main() {
 	Phonebook	phonebook;
 	std::string	command;
@@ -16,25 +23,16 @@ int main() {
 			std::string new_contact_data[5];
 
 			std::cout << "\n==========================[ADD]=============================\n\n";
-			std::cout << "Input First Name: ";
-			if (!std::getline(std::cin, new_contact_data[0]))
-				break ;
-			std::cout << "Input Last Name: ";
-			if (!std::getline(std::cin, new_contact_data[1]))
-				break ;
-			std::cout << "Input Nick Name: ";
-			if (!std::getline(std::cin, new_contact_data[2]))
-				break ;
-			std::cout << "Input Phone Number: ";
-			if (!std::getline(std::cin, new_contact_data[3]))
-				break ;
-			std::cout << "Input Your Darkest Secret : ";
-			if (!std::getline(std::cin, new_contact_data[4]))
-				break ;
+			for (size_t i = 0; i < 5; i++) {
+				std::cout << g_input[i];
+				if (!std::getline(std::cin, new_contact_data[i]))
+					break ;
+			}
 			std::cout << "\n============================================================\n";
+
 			Contact new_contact(new_contact_data);
 			phonebook.add_contact(new_contact);
-			std::cout << std::setw(43) << "\n\t\t      Contact Added!\n\n";
+			std::cout << "\n\t\t      Contact Added!\n\n";
 		}
 		else if (command == "SEARCH") {
 			int			index(-1);
@@ -42,7 +40,7 @@ int main() {
 
 			std::cout << "\n=========================[SEARCH]===========================\n\n";
 			if (phonebook.size() == 0) {
-				std::cout << "        No Contacts\n\n";
+				std::cout << "\n\t\t      No Contacts\n\n";
 				continue ;
 			}
 			phonebook.print_all();
