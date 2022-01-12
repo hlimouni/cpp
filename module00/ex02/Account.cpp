@@ -7,6 +7,8 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
+Account::Account( void ) {}
+
 Account::Account(int initial_deposit) {
 	_accountIndex = getNbAccounts();
 	_amount = initial_deposit;
@@ -14,23 +16,17 @@ Account::Account(int initial_deposit) {
 	_nbWithdrawals = 0;
 	Account::_totalAmount += initial_deposit;
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
+	std::cout << "index:" << _accountIndex
+			  << ";amount:" << _amount
+			  << ";created" << '\n';
     Account::_nbAccounts++;
-}
-
-Account::Account( void ) { 
-    std::cout << "Default constructor has benn called!" << std::endl;
-}
-
-void Account::displayAccountsInfos( void ) {
-	_displayTimestamp();
-	std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount()
-	<< ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
 Account::~Account() {
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
+	std::cout << "index:" << _accountIndex
+			  << ";amount:" << _amount
+			  << ";closed" << '\n';
 };
 
 int Account::getNbAccounts( void ) {
@@ -47,6 +43,14 @@ int     Account::getNbDeposits( void ) {
 
 int     Account::getNbWithdrawals( void ) {
     return (Account::_totalNbWithdrawals);
+}
+
+void Account::displayAccountsInfos( void ) {
+	_displayTimestamp();
+	std::cout << "accounts:" << getNbAccounts()
+			  << ";total:" << getTotalAmount()
+			  << ";deposits:" << getNbDeposits()
+			  << ";withdrawals:" << getNbWithdrawals() << '\n';
 }
 
 void	Account::makeDeposit( int deposit ) {
@@ -81,17 +85,21 @@ bool	Account::makeWithdrawal( int withdrawal ) {
     return true;
 }
 
-int		Account::checkAmount( void ) const { 
-    return _amount;
-}
+// int		Account::checkAmount(void) const { 
+//     return _amount;
+// }
 
 void	Account::displayStatus( void ) const {
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount <<
-	";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals <<std::endl;
+	std::cout << "index:" << _accountIndex
+			  << ";amount:" << _amount
+			  << ";deposits:" << _nbDeposits
+			  << ";withdrawals:" << _nbWithdrawals << '\n';
 }
 
 void Account::_displayTimestamp( void ) {
-	std::time_t t = std::time(0);
-	std::cout << '[' << t << "] ";
+	char buff[100];
+    time_t now = time(0);
+    strftime(buff, 100, "[%Y%m%d_%H%M%S]", localtime(&now));
+    std::cout << buff << ' ';
 }
