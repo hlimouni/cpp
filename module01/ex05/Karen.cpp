@@ -1,7 +1,7 @@
 #include "Karen.hpp"  
 	
 Karen::Karen() {
-	std::cout << "Karen has Entered The Restaurant" << std::endl;
+	std::cout << "Karen has Entered The Restaurant\n" << std::endl;
 }
 
 void Karen::debug( void ) {
@@ -35,12 +35,12 @@ void Karen::complain( std::string level ) {
 		&Karen::debug, &Karen::info, &Karen::warning, &Karen::error
 	};
 	size_t 		index;
-	Karen 		karen;
 	
 	for (size_t i = 0; i < 4; i++) {
 		if (levels[i] == level)
 			index = i;
 	}
 	std::cout << "[ " << level << " ]" << std::endl;
-	(karen.*levelsFunArray[index])();
+	(this->*levelsFunArray[index])();
+	std::cout << std::endl;
 }
