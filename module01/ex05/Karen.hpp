@@ -7,16 +7,19 @@ class Karen  {
 
 	private:
 
+		std::string _levels[4];
 		void debug( void );
 		void info( void );
 		void warning( void );
 		void error( void );
 	
 	public:
-		typedef void( Karen::*levels )( void );
 		Karen();
 		~Karen();
-		void complain( std::string level );
+
+		typedef void( Karen::*levels )( void );
+		int 	get_level_index( std::string const level ) const;
+		void 	complain( std::string level );
 
 };
 #endif

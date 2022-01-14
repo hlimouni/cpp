@@ -1,6 +1,11 @@
 #include "Karen.hpp"  
 	
 Karen::Karen() {
+	std::string levelsArray[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	for (size_t i = 0; i < 4; i++) {
+		this->_levels[i] = levelsArray[i];
+	}
 	std::cout << "Karen has Entered The Restaurant\n" << std::endl;
 }
 
@@ -28,19 +33,25 @@ Karen::~Karen() {
 	std::cout << "Karen left the Restaurant" << std::endl;
 }
 
+
+int	Karen::get_level_index(std::string const level) const {
+
+	int i = 0;
+
+	for (i = 0; i < 4; i++) {
+		if (this->_levels[i] == level)
+			return i;
+	}
+	return -1;
+}
+
 void Karen::complain( std::string level ) {
 
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	Karen::levels levelsFunArray[] = {
 		&Karen::debug, &Karen::info, &Karen::warning, &Karen::error
 	};
-	size_t 		index;
-	
-	for (size_t i = 0; i < 4; i++) {
-		if (levels[i] == level)
-			index = i;
-	}
+
 	std::cout << "[ " << level << " ]" << std::endl;
-	(this->*levelsFunArray[index])();
+	(this->*levelsFunArray[get_level_index(level)])();
 	std::cout << std::endl;
 }
