@@ -11,22 +11,20 @@ Fixed::Fixed( const Fixed& copy ) {
 
 Fixed::Fixed( const int numInt ) {
 	std::cout << "Int constructor called" << std::endl;
-	// if (numInt > 0x007fffff)
-	// 	std::cout << "overflow" << std::endl;
-	// else if (numInt < 0x00800000)
-	// 	std::cout << "underflow" << std::endl;
 	this->_rawBits = numInt << Fixed::_fracBits;
 }
 
-// fixed point numbers are represented in memory as
-// regular numbers muliplied by 2 ^ fractBits (shifted to the left by 8)
-
-// for example in frac<4, 2> (4 bits, 2 fracBits)
-// the value 1:
-// 		as int          [0 0 0 1]
-// 		as fixed point [0 1 0 0]
-// so fixedValue = intValue * 2 ^ 2
-// 1 << 8 = 2 ^ 8
+// ********************************************************************** //
+// fixed point numbers are represented in memory as						  //
+// regular numbers muliplied by 2 ^ fractBits (shifted to the left by 8)  //
+//																		  //
+// for example in frac<4, 2> (4 bits, 2 fracBits)                         //
+// the value 1:															  //
+// 		as int          [0 0 0 1]										  //
+// 		as fixed point [0 1 0 0]										  //
+// so fixedValue = intValue * 2 ^ 2										  //
+//                                         1 << 8 = 2 ^ 8				  //
+// ********************************************************************** //
 
 Fixed::Fixed( const float numFloat) {
 	std::cout << "Float constructor called" << std::endl;
