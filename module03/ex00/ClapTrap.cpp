@@ -52,5 +52,5 @@ void	ClapTrap::beRepaired( unsigned int amount )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Claptrap object destoryed" << std::endl;
+	std::cout << "Claptrap object named: " << _name << " destoryed" << std::endl;
 }
