@@ -3,7 +3,8 @@
 
 int main()
 {
-	Animal* animals[6];
+	//declaring and filling the array
+	Animal* animals[6] = {};
 	for (size_t i = 0; i < 3; i++)
 	{
 		animals[i] = new Cat();
@@ -12,18 +13,30 @@ int main()
 	{
 		animals[i] = new Dog();
 	}
-
+	//calling makesound() for each object
+	std::cout << std::endl;
+	for (size_t i = 0; i < 6; i++)
+	{
+		animals[i]->makeSound();
+	}
+	std::cout << std::endl;
+	//deleting all animals
 	for (size_t i = 0; i < 6; i++)
 	{
 		delete animals[i];
 	}
-	Dog hh ;
-	Brain aaa = hh.getBrain();
+	std::cout << std::endl;
+	//testing deep copies
+	Dog chiwawa ;
+	Brain aaa ;
 	std::string copy[100] = {"A", "B", "C"};
 	aaa.setIdeas(copy);
-	aaa.printIdeas();
-	Dog j;
-	j = hh;
-	j.getBrain().printIdeas();
+	chiwawa.setBrain(aaa);
+	chiwawa.getBrain().printIdeas();
+	{
+		Dog wo(chiwawa);
+		wo.getBrain().printIdeas();
+	}
+	chiwawa.getBrain().printIdeas();
 	return 0;
 }

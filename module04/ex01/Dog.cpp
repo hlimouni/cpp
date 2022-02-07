@@ -16,6 +16,8 @@ Dog::Dog( Dog const & copy ) : Animal(copy)
 
 Dog  const & Dog::operator=( Dog const & rhs )
 {
+		if (this == &rhs)
+			return *this;
         std::cout << "assignment operator for Dog called" << std::endl;
 		this->type = rhs.type;
 		*this->_brain = *rhs._brain;
@@ -36,4 +38,9 @@ void	Dog::makeSound() const
 const Brain & Dog::getBrain()
 {
 	return *this->_brain;
+}
+
+void		Dog::setBrain(Brain brain)
+{
+	*this->_brain = brain;
 }

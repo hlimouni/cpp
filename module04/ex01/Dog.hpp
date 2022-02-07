@@ -18,6 +18,7 @@ public:
 
 	virtual void	makeSound() const;
 	const Brain &   getBrain();
+	void			setBrain(Brain brain);
 };
 
 
