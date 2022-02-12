@@ -9,6 +9,7 @@ private:
 	std::string _name;
 
 public:
+	Ice();
 	Ice(std::string const &name);
 	Ice(Ice const & copy);
 	Ice const & operator=(Ice const & rhs);

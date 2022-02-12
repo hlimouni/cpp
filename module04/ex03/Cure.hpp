@@ -9,6 +9,7 @@ private:
 	std::string _name;
 
 public:
+	Cure();
 	Cure(std::string const &name);
 	Cure(Cure const & copy);
 	Cure const & operator=(Cure const & rhs);
