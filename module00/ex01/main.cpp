@@ -50,7 +50,7 @@ int main() {
 				continue ;
 			std::stringstream  linestream(line);
 			linestream >> index;
-			if (index < 1 || index > phonebook.size()) {
+			if (linestream >> index || index < 1 || index > phonebook.size()) {
 				std::cout << "\nWrong Index!\n\n";
 				continue ;
 			}
