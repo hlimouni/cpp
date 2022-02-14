@@ -6,31 +6,23 @@
 #    By: hlimouni <hlimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:33:12 by hlimouni          #+#    #+#              #
-#    Updated: 2021/12/29 14:22:08 by hlimouni         ###   ########.fr        #
+#    Updated: 2022/02/14 16:01:56 by hlimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX=clang++
-CFLAGS=-Wall -Wextra -Werror -std=c++98
+# CFLAGS=-Wall -Wextra -Werror -std=c++98
+CFLAGS=-Wall -Wextra -Werror
 NAME=megaphone
 
-# HDR=./megaphone.h
-
 SRC=./megaphone.cpp
-
-OBJ=$(SRC:.cpp=.o)
 
 .PHONY:clean fclean re all
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CXX) $(CFLAGS) $^ -o $@
-
-$(OBJ) : %.o : %.cpp
-	$(CXX) $(CFLAGS) -c $< -o $@
-# $(OBJ) : %.o : %.c $(HDR)
-# 	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME) : $(SRC)
+	$(CXX) $(CFLAGS) $< -o $@
 
 clean :
 	@rm -f $(OBJ)
