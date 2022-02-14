@@ -19,6 +19,7 @@ private:
 public:
 
 	Contact();
+	~Contact() {}
 	Contact(std::string fields[5]);
 	void print_full_name(int index) const;
 	void print_info() const;
