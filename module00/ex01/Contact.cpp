@@ -34,7 +34,7 @@ void	Contact::print_info() const {
 	}
 }
 
-Contact::Contact() : _width(10){}
+Contact::Contact() : _width(10) {}
 
 Contact::Contact(std::string fields[5])
 	: _width(10),
@@ -51,9 +51,9 @@ Contact::Contact(std::string fields[5])
 }
 // int main() 
 // {
-// 	Contact contact {"blllllalkjlksj", "lklkjlkjlkjlkjl",
-// 		"lkjlksjdflkjsldfkj", "lkjlskdjflksjdflkj", "lkjls"};
-// 	Contact contact2 {"123456789012","1","123456789","1234567890", ""};
+// 	Contact contact((std::string[]){"blllllalkjlksj", "lklkjlkjlkjlkjl",
+// 		"lkjlksjdflkjsldfkj", "lkjlskdjflksjdflkj", "lkjls"});
+// 	Contact contact2((std::string[]){"123456789012","1","123456789","1234567890", ""});
 // 	Contact contact3;
 	
 // 	contact.print_full_name(0);

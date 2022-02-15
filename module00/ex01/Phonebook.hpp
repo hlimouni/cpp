@@ -14,6 +14,7 @@ private:
 
 public:
 	Phonebook();
+	~Phonebook() {};
 	int			   size() const;
 	void           add_contact(Contact& contact);
 	const Contact& get_contact(int index) const;

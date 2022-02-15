@@ -4,9 +4,6 @@ Phonebook::Phonebook() : _max(8), _number_of_contacts(0) {}
 
 void	Phonebook::add_contact(Contact &contact) {
 
-	Contact tmp_old;
-	Contact tmp_new;
-
 	if (_number_of_contacts < _max) {
 		_phonebook[_number_of_contacts].replace_with(contact);
 		_number_of_contacts++;

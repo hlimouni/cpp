@@ -44,10 +44,9 @@ int main() {
 				continue ;
 			}
 			phonebook.print_all();
-			std::cout << '\n';
-			std::cout << "Input Contact Index: ";
+			std::cout << "\nInput Contact Index: ";
 			if (!std::getline(std::cin, line))
-				continue ;
+				break ;
 			std::stringstream  linestream(line);
 			linestream >> index;
 			if (linestream >> index || index < 1 || index > phonebook.size()) {

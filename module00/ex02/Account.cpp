@@ -9,11 +9,15 @@ int	Account::_totalNbWithdrawals = 0;
 
 Account::Account( void ) {}
 
-Account::Account(int initial_deposit) {
-	_accountIndex = getNbAccounts();
-	_amount = initial_deposit;
-	_nbDeposits = 0;
-	_nbWithdrawals = 0;
+Account::Account(int initial_deposit)
+	:  _accountIndex(getNbAccounts()),
+	  _amount(initial_deposit),
+	  _nbDeposits(0),
+	  _nbWithdrawals(0) {
+	// _accountIndex = getNbAccounts();
+	// _amount = initial_deposit;
+	// _nbDeposits = 0;
+	// _nbWithdrawals = 0;
 	Account::_totalAmount += initial_deposit;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex
