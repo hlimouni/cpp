@@ -16,5 +16,9 @@ class FragTrap : public ClapTrap
 		void		attack( std::string const & target );
 		void		highFiveGuys();
 
+		static const long initialEnergyPoints = 100;
+		static const long initialHitPoints = 100;
+		static const long initialAttackDamage = 30;
+
 };
 #endif

@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"  
 	
-ClapTrap::ClapTrap() : _hitPoints(0), _energyPoints(0), _attackDamage(0)
+ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap object created" << std::endl;
 }
@@ -18,6 +18,19 @@ ClapTrap::ClapTrap( std::string const & name, long hitPoints,
 			  _attackDamage(attackDamage)
 {
 	std::cout << "Claptrap named: " << name << " created with the following configuration:" << std::endl;
+	std::cout << "Hit points: " << _hitPoints << std::endl;
+	std::cout << "Energy points: " << _energyPoints << std::endl;
+	std::cout << "Attack damage: " << _attackDamage << std::endl;
+}
+
+ClapTrap::ClapTrap( long hitPoints,
+								long  energyPoints, long attackDamage )
+			: 
+			  _hitPoints(hitPoints),
+			  _energyPoints(energyPoints),
+			  _attackDamage(attackDamage)
+{
+	std::cout << "Claptrap created with the following configuration:" << std::endl;
 	std::cout << "Hit points: " << _hitPoints << std::endl;
 	std::cout << "Energy points: " << _energyPoints << std::endl;
 	std::cout << "Attack damage: " << _attackDamage << std::endl;

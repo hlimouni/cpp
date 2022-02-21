@@ -16,5 +16,8 @@ class ScavTrap : public ClapTrap
 		void		attack( std::string const & target );
 		void		guardGate();
 
+		static const long initialHitPoints = 100;
+		static const long initialEnergyPoints = 50;
+		static const long initialAttackDamage = 20;
 };
 #endif

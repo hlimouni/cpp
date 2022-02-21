@@ -2,35 +2,26 @@
 
 int main()
 {
-	DiamondTrap a;
-	DiamondTrap b("Hammadi");
-	DiamondTrap c("Lma3ti");
-	DiamondTrap e("Hadda");
-	DiamondTrap d("Tamou");
+	DiamondTrap a("Annie");
+	DiamondTrap b("Mikasa");
+	DiamondTrap c("Armin");
 
-	a = e;
-	a.attack(d.getName());
-	b.attack(c.getName());
-	// a.takeDamage(23);
-	// c.takeDamage(12);
-	// d.beRepaired(100);
-	// a.beRepaired(22);
-	// d.beRepaired(22);
-	a.highFiveGuys();
-	b.highFiveGuys();
+	std::cout << std::endl;
+	std::cout << "ClapTrap Game begins" << std::endl;
+	std::cout << "=====================" << std::endl;
+	ClapTrap::fight(b, a);
+	a.beRepaired(200);
+	std::cout << std::endl;
 	c.highFiveGuys();
-	d.highFiveGuys();
-	e.highFiveGuys();
-
-	a.guardGate();
 	b.guardGate();
-	c.guardGate();
-	d.guardGate();
-	e.guardGate();
-
-	a.whoAmI();
+	std::cout << std::endl;
 	b.whoAmI();
 	c.whoAmI();
-	d.whoAmI();
-	e.whoAmI();
+	std::cout << std::endl;
+	std::cout << "Game Summary" << std::endl;
+	std::cout << "============" << std::endl;
+	a.summary();
+	b.summary();
+	c.summary();
+	std::cout << std::endl;
 }

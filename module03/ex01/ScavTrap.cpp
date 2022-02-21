@@ -1,11 +1,11 @@
 #include "ScavTrap.hpp"  
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap(initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
 	std::cout << "ScavTrap object created" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string const & name ) : ClapTrap(name, 100, 50, 20)
+ScavTrap::ScavTrap( std::string const & name ) : ClapTrap(name, initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
 	std::cout << "Scavtrap named: " << name << " created\n" << std::endl;
 }

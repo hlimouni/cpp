@@ -5,19 +5,17 @@ DiamondTrap::DiamondTrap()
 	std::cout << "DiamondTrap object created" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string const & name ) : ClapTrap(name + "_clap_name", 100, 50, 30), FragTrap(name), ScavTrap(name), _name(name)
+DiamondTrap::DiamondTrap( std::string const & name )
+	: ClapTrap(name + "_clap_name", FragTrap::initialHitPoints, ScavTrap::initialEnergyPoints, FragTrap::initialAttackDamage), _name(name)
 {
-	// this->setHitPoints(FragTrap::getHitPoints());
-	// this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	// this->setAttackDamage(FragTrap::getAttackDamage());
-	std::cout << "DiamondTrap named: " << name << " created" << std::endl;
-	std::cout << "Here's its configuration:" << std::endl;
-	std::cout << "Hit Points: " << this->getHitPoints() << std::endl;
-	std::cout << "Energy Points: " << this->getEnergyPoints() << std::endl;
-	std::cout << "Attack Damage: " << this->getAttackDamage() << std::endl;
+	std::cout << "DiamondTrap named " << name << " created with this configuration:" << std::endl;
+	std::cout << "  Hit Points: " << getHitPoints() << std::endl;
+	std::cout << "  Energy Points: " << getEnergyPoints() << std::endl;
+	std::cout << "  Attack Damage: " << getAttackDamage() << std::endl;
+	std::cout << std::endl;
 }
 
-DiamondTrap::DiamondTrap( DiamondTrap const & copy ) :ClapTrap(copy), FragTrap(copy), ScavTrap(copy)
+DiamondTrap::DiamondTrap( DiamondTrap const & copy ) :ClapTrap(copy)
 {
 	std::cout << "DiamondTrap Copy constructor called" << std::endl;
 	*this = copy;
@@ -26,10 +24,8 @@ DiamondTrap::DiamondTrap( DiamondTrap const & copy ) :ClapTrap(copy), FragTrap(c
 DiamondTrap  const & DiamondTrap::operator=( DiamondTrap const & rhs )
 {
 	std::cout << "DiamondTrap assignment operator called" << std::endl;
-	this->setName(rhs.getName());
-	this->setEnergyPoints(rhs.getEnergyPoints());
-	this->setHitPoints(rhs.getHitPoints());
-	this->setAttackDamage(rhs.getAttackDamage());
+	ClapTrap::operator=(rhs);
+	this->_name = rhs._name;
 	return *this;
 }
 
@@ -40,7 +36,7 @@ void	DiamondTrap::attack( std::string const & target )
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "DiamondTrap name: '" << this->_name << "\'\n" << "ClapTrap name '" << this->getName() << '\'' << std::endl;
+	std::cout << " * * * DiamondTrap '" << this->_name << "': my ClapTrap name is '" << this->getName() << "\' * * *" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()

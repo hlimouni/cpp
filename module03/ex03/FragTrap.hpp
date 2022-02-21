@@ -5,8 +5,6 @@
 
 class FragTrap : virtual public ClapTrap
 {
-	private:
-
 	public:
 
 		FragTrap();
@@ -17,6 +15,10 @@ class FragTrap : virtual public ClapTrap
 		FragTrap 	const & operator=(FragTrap const & rhs);
 		void		attack( std::string const & target );
 		void		highFiveGuys();
+
+		static const long initialEnergyPoints = 100;
+		static const long initialHitPoints = 100;
+		static const long initialAttackDamage = 30;
 
 };
 #endif

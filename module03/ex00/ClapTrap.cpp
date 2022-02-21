@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"  
 	
-ClapTrap::ClapTrap() : _hitPoints(0), _energyPoints(0), _attackDamage(0)
+ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap object created" << std::endl;
 }

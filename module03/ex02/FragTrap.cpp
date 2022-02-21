@@ -1,11 +1,11 @@
 #include "FragTrap.hpp"  
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap(initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
 	std::cout << "FragTrap object created" << std::endl;
 }
 
-FragTrap::FragTrap( std::string const & name ) : ClapTrap(name, 100, 100, 30)
+FragTrap::FragTrap( std::string const & name ) : ClapTrap(name, initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
 	std::cout << "FragTrap named: " << name << " created" << std::endl;
 }

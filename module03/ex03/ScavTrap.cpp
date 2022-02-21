@@ -1,16 +1,16 @@
 #include "ScavTrap.hpp"  
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap(initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
 	std::cout << "ScavTrap object created" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string const & name ) : ClapTrap(name, 100, 50, 20)
+ScavTrap::ScavTrap( std::string const & name ) : ClapTrap(name, initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
-	std::cout << "Scavtrap named: " << name << " created" << std::endl;
+	std::cout << "Scavtrap named: " << name << " created\n" << std::endl;
 }
 
-ScavTrap::ScavTrap( ScavTrap const & copy ) : ClapTrap(copy)
+ScavTrap::ScavTrap( ScavTrap const & copy )
 {
 	std::cout << "Scavtrap Copy constructor called" << std::endl;
 	*this = copy;
@@ -19,10 +19,7 @@ ScavTrap::ScavTrap( ScavTrap const & copy ) : ClapTrap(copy)
 ScavTrap  const & ScavTrap::operator=( ScavTrap const & rhs )
 {
 	std::cout << "Scavtrap assignment operator called" << std::endl;
-	this->setName(rhs.getName());
-	this->setEnergyPoints(rhs.getEnergyPoints());
-	this->setHitPoints(rhs.getHitPoints());
-	this->setAttackDamage(rhs.getAttackDamage());
+	ClapTrap::operator=(rhs);
 	return *this;
 }
 
@@ -35,7 +32,7 @@ void	ScavTrap::attack( std::string const & target )
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "Scavtrap " << this->getName() << " have enterred in Gate keeper mode" << std::endl;
+	std::cout << " * * * Scavtrap " << this->getName() << " has enterred GATE KEEPER mode * * *" << std::endl;
 }
 
 ScavTrap::~ScavTrap()

@@ -20,6 +20,8 @@ class ClapTrap
 		ClapTrap( ClapTrap const & copy );
 		ClapTrap( std::string const & name, long hitPoints,
 				long energyPoints, long attackDamage );
+		ClapTrap( long hitPoints,
+				long energyPoints, long attackDamage );
 		ClapTrap  const & operator=(ClapTrap const & rhs);
 		~ClapTrap();
 

@@ -1,16 +1,16 @@
 #include "FragTrap.hpp"  
 
-FragTrap::FragTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap(initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
 	std::cout << "FragTrap object created" << std::endl;
 }
 
-FragTrap::FragTrap( std::string const & name ) : ClapTrap(name, 100, 100, 30)
+FragTrap::FragTrap( std::string const & name ) : ClapTrap(name, initialHitPoints, initialEnergyPoints, initialAttackDamage)
 {
 	std::cout << "FragTrap named: " << name << " created" << std::endl;
 }
 
-FragTrap::FragTrap( FragTrap const & copy ) : ClapTrap(copy)
+FragTrap::FragTrap( FragTrap const & copy )
 {
 	std::cout << "FragTrap Copy constructor called" << std::endl;
 	*this = copy;
@@ -19,10 +19,7 @@ FragTrap::FragTrap( FragTrap const & copy ) : ClapTrap(copy)
 FragTrap  const & FragTrap::operator=( FragTrap const & rhs )
 {
 	std::cout << "FragTrap assignment operator called" << std::endl;
-	this->setName(rhs.getName());
-	this->setEnergyPoints(rhs.getEnergyPoints());
-	this->setHitPoints(rhs.getHitPoints());
-	this->setAttackDamage(rhs.getAttackDamage());
+	ClapTrap::operator=(rhs);
 	return *this;
 }
 
@@ -35,7 +32,7 @@ void	FragTrap::attack( std::string const & target )
 
 void	FragTrap::highFiveGuys()
 {
-	std::cout << "FragTrap " << this->getName() << " is asking for a high five" << std::endl;
+	std::cout << " * * * FragTrap " << this->getName() << " is asking for a HIGH FIVE!! * * *" << std::endl;
 }
 
 FragTrap::~FragTrap()
