@@ -2,23 +2,33 @@
 
 int main()
 {
-	ScavTrap a;
-	ScavTrap b("Hammadi");
-	ScavTrap c("Lma3ti");
-	ScavTrap e("Hadda");
-	ScavTrap d("Tamou");
+	ScavTrap a("Armin");
+	ScavTrap b("Eren");
+	ScavTrap d("Levi");
+	ScavTrap c("Mikasa");
+	ScavTrap e("Zeke");
+	ScavTrap f("Reiner");
 
-	a = e;
-	a.attack(d.getName());
-	b.attack(c.getName());
-	a.takeDamage(23);
-	c.takeDamage(12);
-	d.beRepaired(100);
-	a.beRepaired(22);
-	d.beRepaired(22);
-	a.guardGate();
-	b.guardGate();
+	std::cout << std::endl;
+	std::cout << "ClapTrap Game begins" << std::endl;
+	std::cout << "=====================" << std::endl;
+	ClapTrap::fight(d, e);
+	ClapTrap::fight(d, e);
+	ClapTrap::fight(b, f);
+	ClapTrap::fight(f, b);
+	e.beRepaired(200);
+	b.beRepaired(200);
+	std::cout << std::endl;
 	c.guardGate();
 	d.guardGate();
-	e.guardGate();
+	std::cout << std::endl;
+	std::cout << "Game Summary" << std::endl;
+	std::cout << "============" << std::endl;
+	a.summary();
+	b.summary();
+	c.summary();
+	d.summary();
+	e.summary();
+	f.summary();
+	std::cout << std::endl;
 }
