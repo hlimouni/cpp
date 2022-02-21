@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"  
 	
-ClapTrap::ClapTrap() : _hitPoints(0), _energyPoints(0), _attackDamage(0)
+ClapTrap::ClapTrap() : _name(), _hitPoints(0), _energyPoints(0), _attackDamage(0)
 {
 	std::cout << "ClapTrap object created" << std::endl;
 }
@@ -31,23 +31,64 @@ std::string	ClapTrap::getName() const
 	return this->_name;
 }
 
+long	ClapTrap::getEnergyPoints() const
+{
+	return this->_energyPoints;
+}
+
+long	ClapTrap::getHitPoints() const
+{
+	return this->_hitPoints;
+}
+
+long	ClapTrap::getAttackDamage() const
+{
+	return this->_attackDamage;
+}
+
 void	ClapTrap::attack( std::string const & target )
 {
-	std::cout << "ClapTrap " << this->_name << " attack " << target
-			  << ", causing " << this->_attackDamage << " points of damage!"
-			  << std::endl;
+	if (this->_energyPoints > 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " attack " << target
+				  << ", causing " << this->_attackDamage << " points of damage!"
+				  << std::endl;
+		this->_energyPoints--;
+	}
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )
 {
-	std::cout << "ClapTrap " << this->_name << " received " << amount
-			  << " points of damage!" << std::endl;
+	if (this->_hitPoints > 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " received " << amount
+				  << " points of damage!" << std::endl;
+		_hitPoints - amount < 0 ? this->_hitPoints = 0 : this->_hitPoints -= amount;
+	}
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	std::cout << "ClapTrap " << this->_name << " repaired with "
-			  << amount << " energy points!" << std::endl;
+	if (this->_energyPoints > 0)
+	{
+		this->_hitPoints += amount;
+		std::cout << "ClapTrap " << this->_name << " repaired with "
+				  << amount << " energy points!" << std::endl;
+		this->_energyPoints--;
+	}
+}
+
+void	ClapTrap::fight(ClapTrap &attacker, ClapTrap &attacked)
+{
+	attacker.attack(attacked.getName());
+	attacker.takeDamage(attacked.getAttackDamage());
+}
+
+void	ClapTrap::summary() const
+{
+	std::cout << std::setw(10) << std::left << this->_name << ":   Hit points = " << getHitPoints()
+			  <<"   Energy Points = " << getEnergyPoints()
+			  << "   Attack damage = " << getAttackDamage() << std::endl;
 }
 
 ClapTrap::~ClapTrap()
