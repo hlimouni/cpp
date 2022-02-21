@@ -2,23 +2,33 @@
 
 int main()
 {
-	FragTrap a;
-	FragTrap b("Hammadi");
-	FragTrap c("Lma3ti");
-	FragTrap e("Hadda");
-	FragTrap d("Tamou");
+	FragTrap a("Armin");
+	FragTrap b("Eren");
+	FragTrap d("Levi");
+	FragTrap c("Mikasa");
+	FragTrap e("Zeke");
+	FragTrap f("Reiner");
 
-	a = e;
-	a.attack(d.getName());
-	b.attack(c.getName());
-	a.takeDamage(23);
-	c.takeDamage(12);
-	d.beRepaired(100);
-	a.beRepaired(22);
-	d.beRepaired(22);
+	std::cout << std::endl;
+	std::cout << "ClapTrap Game begins" << std::endl;
+	std::cout << "=====================" << std::endl;
+	ClapTrap::fight(d, e);
+	ClapTrap::fight(d, e);
+	ClapTrap::fight(b, f);
+	ClapTrap::fight(f, b);
+	e.beRepaired(200);
+	b.beRepaired(200);
+	std::cout << std::endl;
 	a.highFiveGuys();
-	b.highFiveGuys();
-	c.highFiveGuys();
-	d.highFiveGuys();
-	e.highFiveGuys();
+	f.highFiveGuys();
+	std::cout << std::endl;
+	std::cout << "Game Summary" << std::endl;
+	std::cout << "============" << std::endl;
+	a.summary();
+	b.summary();
+	c.summary();
+	d.summary();
+	e.summary();
+	f.summary();
+	std::cout << std::endl;
 }
