@@ -11,8 +11,8 @@ private:
 	std::string	_name;
 
 public:
-	HumanA(Weapon& weapon);
-	HumanA(const std::string name, Weapon& weapon);
+	HumanA(Weapon &weapon);
+	HumanA(std::string const name, Weapon & weapon);
 	~HumanA();
 	void	attack() const;
 

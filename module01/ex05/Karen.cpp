@@ -34,7 +34,7 @@ Karen::~Karen() {
 }
 
 
-int	Karen::get_level_index(std::string const level) const {
+int	Karen::getLevelIndex(std::string const level) const {
 
 	int i = 0;
 
@@ -52,6 +52,7 @@ void Karen::complain( std::string level ) {
 	};
 
 	std::cout << "[ " << level << " ]" << std::endl;
-	(this->*levelsFunArray[get_level_index(level)])();
+	(this->*levelsFunArray[getLevelIndex(level)])();
+	(this->Karen::warning)();
 	std::cout << std::endl;
 }

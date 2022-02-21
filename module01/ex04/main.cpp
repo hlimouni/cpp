@@ -12,7 +12,7 @@ int main(int ac, char **av) {
 		std::ifstream ifs(fileName);
 
 		if (!ifs.is_open()) {
-			std::cerr << "Error: " << strerror(errno) << std::endl;
+			std::cerr << "Error: " << std::strerror(errno) << std::endl;
 			return 1;
 		}
 
@@ -39,4 +39,5 @@ int main(int ac, char **av) {
 		std::cerr << "Error: Number of arguments is not correct!" << std::endl;
 		return 1;
 	}
+	return 0;
 }

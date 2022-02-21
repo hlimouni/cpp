@@ -6,7 +6,7 @@ Karen::Karen() {
 	for (size_t i = 0; i < 4; i++) {
 		this->_levels[i] = levelsArray[i];
 	}
-	std::cout << "Karen has Entered The Restaurant\n" << std::endl;
+	// std::cout << "Karen has Entered The Restaurant\n" << std::endl;
 }
 
 void Karen::debug( void ) {
@@ -30,11 +30,11 @@ void Karen::error( void ) {
 }
 
 Karen::~Karen() {
-	std::cout << "Karen left the Restaurant" << std::endl;
+	// std::cout << "Karen left the Restaurant" << std::endl;
 }
 
 
-int	Karen::get_level_index(std::string const level) const {
+int	Karen::getLevelIndex(std::string const level) const {
 
 	int i = 0;
 
@@ -51,17 +51,16 @@ void Karen::complain( std::string level ) {
 		&Karen::debug, &Karen::info, &Karen::warning, &Karen::error
 	};
 
-	switch (int indexLevel = get_level_index(level)) {
+	switch (int indexLevel = getLevelIndex(level)) {
 		case 0: case 1: case 2: case 3:
-			std::cout << "[ " << level << " ]" << std::endl;
-			(this->*levelsFunArray[indexLevel])();
-			std::cout << std::endl;
-			std::cout << "[ " << this->_levels[(indexLevel + 1) % 4] << " ]" << std::endl;
-			(this->*levelsFunArray[(indexLevel + 1) % 4])();
-			std::cout << std::endl;
+			for (int i = indexLevel; i < 4 ; i++) {
+				std::cout << "[ " << this->_levels[i] << " ]" << std::endl;
+				(this->*levelsFunArray[i])();
+				std::cout << std::endl;
+			}
 			break ;
 		default:
-			std::cout << "[ Probably complaining about insignificant problems ]\n" << std::endl;
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			break ;
 	}
 }

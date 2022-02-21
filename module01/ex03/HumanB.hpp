@@ -12,9 +12,9 @@ private:
 
 public:
 	HumanB();
-	HumanB(std::string name);
+	HumanB(std::string const name);
 	~HumanB();
-	void	setWeapon(Weapon& weapon);
+	void	setWeapon(Weapon & weapon);
 	void	attack() const;
 
 

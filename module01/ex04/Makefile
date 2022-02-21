@@ -6,27 +6,23 @@
 #    By: hlimouni <hlimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:33:12 by hlimouni          #+#    #+#              #
-#    Updated: 2022/01/13 18:02:49 by hlimouni         ###   ########.fr        #
+#    Updated: 2022/02/17 15:57:23 by hlimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX=clang++
-CFLAGS=-Wall -Wextra -Werror -std=c++98
+CFLAGS=-Wall -Wextra -Werror
+# CFLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=ex04
 
 SRC=./main.cpp
-
-OBJ=$(SRC:.cpp=.o)
 
 .PHONY:clean fclean re all
 
 all: $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CXX) $(CFLAGS) $^ -o $@
-
-$(OBJ) : %.o : %.cpp
-	$(CXX) $(CFLAGS) -c $< -o $@
+$(NAME) : $(SRC)
+	$(CXX) $(CFLAGS) $< -o $@
 
 clean :
 	@rm -f $(OBJ)

@@ -18,7 +18,7 @@ class Karen  {
 		~Karen();
 
 		typedef void( Karen::*levels )( void );
-		int 	get_level_index( std::string const level ) const;
+		int 	getLevelIndex( std::string const level ) const;
 		void 	complain( std::string level );
 
 };
