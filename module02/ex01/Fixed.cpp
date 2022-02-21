@@ -16,7 +16,7 @@ Fixed::Fixed( const int numInt ) {
 
 // ********************************************************************** //
 // fixed point numbers are represented in memory as						  //
-// regular numbers muliplied by 2 ^ fractBits (shifted to the left by 8)  //
+// regular integers muliplied by 2 ^ fractBits (shifted to the left by 8) //
 //																		  //
 // for example in frac<4, 2> (4 bits, 2 fracBits)                         //
 // the value 1:															  //
@@ -33,6 +33,8 @@ Fixed::Fixed( const float numFloat) {
 
 const Fixed& Fixed::operator=( const Fixed& fixed ) {
 	std::cout << "Assignation operator called" << std::endl;
+	if (this == &fixed)
+		return *this;
 	this->_rawBits = fixed._rawBits;
 	return *this;
 }

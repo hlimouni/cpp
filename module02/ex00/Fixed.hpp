@@ -13,11 +13,12 @@ private:
 public:
 
 	Fixed();
+	~Fixed();
 	Fixed(const Fixed& copy);
-	void operator = (const Fixed& fixed);
+	Fixed const & operator=(const Fixed& rhs);
+
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
-	~Fixed();
 };
 
 

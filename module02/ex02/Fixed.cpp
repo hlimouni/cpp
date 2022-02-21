@@ -14,25 +14,34 @@ Fixed::Fixed( const int numInt ) {
 	this->_rawBits = numInt <<  Fixed::_fracBits;
 }
 
-// ********************************************************************** //
-//																		  //
-// fixed point numbers are represented in memory as						  //
-// regular numbers muliplied by 2 ^ fractBits (shifted to the left by 8)  //
-//																		  //
-// for example in frac<4, 2> (4 bits, 2 fracBits)                         //
-// the value 1:															  //
-// 		as int          [0 0 0 1]										  //
-// 		as fixed point [0 1 0 0]										  //
-// so fixedValue = intValue * 2 ^ 2										  //
-// and intValue = fixedValue / 2 ^ 2									  //
-//																		  //
-//                         1 << fracBits =  1 << 8 = 2 ^ 8				  //
-//																		  //
-// fixedValue1 + fixedValue2 = (intValue1 + intValue2) * 2 ^ 2            //
-// fixedValue1 - fixedValue2 = (intValue1 - intValue2) * 2 ^ 2            //
-// (fixedValue1 * fixedValue2) / 2 ^ 2 = (intValue1 * intValue2) * 2 ^ 2  //
-// (fixedValue1 / fixedValue2) * 2 ^ 2 = (intValue1 / intValue2) * 2 ^ 2
-// ********************************************************************** //
+// ******************************************************************************** //
+//																		  		    //
+// fixed point numbers are represented in memory as						  		    //
+// regular numbers muliplied by 2 ^ fractBits (shifted to the left by 8)  		    //
+//																		  		    //
+// for example in frac<4, 2> (4 bits, 2 fracBits)                         		    //
+// the value 1:															  		    //
+// 		as actual int value         [0 0 0 1]							  		    //
+// 		as fixed point raw bits		[0 1 0 0]							  		    //
+// so fixedRawBits = actualValue * 2 ^ 2					(1)					    //
+// and actualValue = fixedRawBits / 2 ^ 2									        //
+//																		            //
+//                         1 << fracBits =  1 << 8 = 2 ^ 8				            //
+//																		            //
+// In addition and substraction it's straight forward:                              //
+// fixedRawBits1 + fixedRawBits2 = (actualValue1 + actualValue2) * 2 ^ 2            //
+// fixedRawBits1 - fixedRawBits2 = (actualValue1 - actualValue2) * 2 ^ 2            //
+//																		            //
+// But in multiplication and division not so:									    //
+// if we multiply the raw bits directly we don't get the desired result             //
+//																		            //
+// from (1) fixedRawbits1 * fixedRawBits2 = actualValue1 * actualValue2 * 2 ^ 4     //
+//																		            //
+// We want the raw bits to equal    (actualProduct) * 2 ^ 2                         //
+//																		            //
+// (fixedRawBits1 * fixedRawBits2) / 2 ^ 2 = (actualValue1 * actualValue2) * 2 ^ 2  //
+// (fixedRawBits1 / fixedRawBits2) * 2 ^ 2 = (actualValue1 / actualValue2) * 2 ^ 2  //
+// ******************************************************************************** //
 
 Fixed::Fixed( const float numFloat) {
 	std::cout << "Float constructor called" << std::endl;

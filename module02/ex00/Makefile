@@ -6,12 +6,13 @@
 #    By: hlimouni <hlimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:33:12 by hlimouni          #+#    #+#              #
-#    Updated: 2022/01/16 19:47:50 by hlimouni         ###   ########.fr        #
+#    Updated: 2022/02/18 23:53:18 by hlimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX=clang++
-CFLAGS=-Wall -Wextra -Werror -std=c++98
+CFLAGS=-Wall -Wextra -Werror
+# CFLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=fixed
 
 HDR=./Fixed.hpp \
