@@ -11,13 +11,10 @@ Account::Account( void ) {}
 
 Account::Account(int initial_deposit)
 	:  _accountIndex(getNbAccounts()),
-	  _amount(initial_deposit),
-	  _nbDeposits(0),
-	  _nbWithdrawals(0) {
-	// _accountIndex = getNbAccounts();
-	// _amount = initial_deposit;
-	// _nbDeposits = 0;
-	// _nbWithdrawals = 0;
+	   _amount(initial_deposit),
+	   _nbDeposits(0),
+	   _nbWithdrawals(0)
+{
 	Account::_totalAmount += initial_deposit;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex
@@ -26,30 +23,36 @@ Account::Account(int initial_deposit)
     Account::_nbAccounts++;
 }
 
-Account::~Account() {
+Account::~Account()
+{
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex
 			  << ";amount:" << _amount
 			  << ";closed" << '\n';
 };
 
-int Account::getNbAccounts( void ) {
+int Account::getNbAccounts( void )
+{
     return (Account::_nbAccounts);
 }
 
-int     Account::getTotalAmount( void ) {
+int     Account::getTotalAmount( void )
+{
     return (Account::_totalAmount);
 }
 
-int     Account::getNbDeposits( void ) {
+int     Account::getNbDeposits( void )
+{
     return (Account::_totalNbDeposits);
 }
 
-int     Account::getNbWithdrawals( void ) {
+int     Account::getNbWithdrawals( void )
+{
     return (Account::_totalNbWithdrawals);
 }
 
-void Account::displayAccountsInfos( void ) {
+void Account::displayAccountsInfos( void )
+{
 	_displayTimestamp();
 	std::cout << "accounts:" << getNbAccounts()
 			  << ";total:" << getTotalAmount()
@@ -72,7 +75,7 @@ void	Account::makeDeposit( int deposit ) {
 }
 
 bool	Account::makeWithdrawal( int withdrawal ) { 
-    if (withdrawal < 0 || _amount - withdrawal < 0) {
+    if (withdrawal < 0 || withdrawal > _amount ) {
     	_displayTimestamp();
 		std::cout << "index" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:refused" << std::endl;
 		return false;
@@ -102,8 +105,8 @@ void	Account::displayStatus( void ) const {
 }
 
 void Account::_displayTimestamp( void ) {
-	char buff[100];
+	char buff[20];
     time_t now = time(0);
-    strftime(buff, 100, "[%Y%m%d_%H%M%S]", localtime(&now));
+    std::strftime(buff, 20, "[%Y%m%d_%H%M%S]", localtime(&now));
     std::cout << buff << ' ';
 }
