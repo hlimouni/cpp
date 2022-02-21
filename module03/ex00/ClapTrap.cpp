@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"  
 	
-ClapTrap::ClapTrap() : _name(), _hitPoints(0), _energyPoints(0), _attackDamage(0)
+ClapTrap::ClapTrap() : _hitPoints(0), _energyPoints(0), _attackDamage(0)
 {
 	std::cout << "ClapTrap object created" << std::endl;
 }
@@ -81,7 +81,7 @@ void	ClapTrap::beRepaired( unsigned int amount )
 void	ClapTrap::fight(ClapTrap &attacker, ClapTrap &attacked)
 {
 	attacker.attack(attacked.getName());
-	attacker.takeDamage(attacked.getAttackDamage());
+	attacked.takeDamage(attacker.getAttackDamage());
 }
 
 void	ClapTrap::summary() const
