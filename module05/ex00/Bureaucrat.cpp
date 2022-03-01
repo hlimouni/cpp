@@ -1,5 +1,30 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::GradeTooLowException::GradeTooLowException() : _tooLowError("Grade too Low")
+{
+}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException() _NOEXCEPT
+{
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const _NOEXCEPT
+{
+	return this->_tooLowError.c_str();
+}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException() : _tooHighError("Grade too High")
+{
+}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException() _NOEXCEPT
+{
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const _NOEXCEPT
+{
+	return this->_tooHighError.c_str();
+}
 
 Bureaucrat::Bureaucrat()
 {

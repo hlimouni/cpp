@@ -27,9 +27,9 @@ public:
 		std::string const _tooHighError;
 	
 	public:
-		GradeTooHighException() : _tooHighError("Grade too high") {}
-		const char* what() const _NOEXCEPT { return this->_tooHighError.c_str(); }
-		~GradeTooHighException() _NOEXCEPT {}
+		GradeTooHighException();
+		const char* what() const _NOEXCEPT;
+		~GradeTooHighException() _NOEXCEPT;
 	};
 
 	class GradeTooLowException : public std::exception
@@ -38,9 +38,9 @@ public:
 		std::string _tooLowError;
 	
 	public:
-		GradeTooLowException() : _tooLowError("Grade too low") {}
-		const char* what() const _NOEXCEPT { return this->_tooLowError.c_str(); }
-		~GradeTooLowException() _NOEXCEPT {}
+		GradeTooLowException();
+		const char* what() const _NOEXCEPT;
+		~GradeTooLowException() _NOEXCEPT;
 	};
 
 	std::string const & getName() const;

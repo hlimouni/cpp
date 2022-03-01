@@ -10,7 +10,7 @@ int main()
 		// Bureaucrat e( 151);
 		Bureaucrat f("average", 75);
 
-		// //hightest incrementation
+		//hightest incrementation
 		// std::cout << "before incrementing the Bureaucrat " << c.getName() << std::endl;
 		// std::cout << c << std::endl;
 		// std::cout << "incrementation try of the Bureaucrat " << c.getName() << std::endl;
