@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal() : type("Uncategorized animal")
 {
 	std::cout << "Animal object created" << std::endl;
 }
@@ -12,7 +12,7 @@ Animal::~Animal()
 
 void	Animal::makeSound() const
 {
-	std::cout << "Unknown Animal voices!!" << std::endl;
+	std::cout << "$@@#@#%@#$+_)*&*^&%^$%^$#$!!" << std::endl;
 }
 
 std::string	Animal::getType() const

@@ -19,7 +19,4 @@ public:
 	void setIdeas(std::string copy[100]);
 };
 
-
-
-
 #endif

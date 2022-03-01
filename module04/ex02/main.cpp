@@ -4,26 +4,26 @@
 int main()
 {
 	//declaring and filling the array
-	Animal* animals[6] = {};
+	AAnimal* AAnimals[6] = {};
 	for (size_t i = 0; i < 3; i++)
 	{
-		animals[i] = new Cat();
+		AAnimals[i] = new Cat();
 	}
 	for (size_t i = 3; i < 6; i++)
 	{
-		animals[i] = new Dog();
+		AAnimals[i] = new Dog();
 	}
 	//calling makesound() for each object
 	std::cout << std::endl;
 	for (size_t i = 0; i < 6; i++)
 	{
-		animals[i]->makeSound();
+		AAnimals[i]->makeSound();
 	}
 	std::cout << std::endl;
-	//deleting all animals
+	//deleting all AAnimals
 	for (size_t i = 0; i < 6; i++)
 	{
-		delete animals[i];
+		delete AAnimals[i];
 	}
 	std::cout << std::endl;
 	//testing deep copies
@@ -39,6 +39,6 @@ int main()
 	}
 	chiwawa.getBrain().printIdeas();
 	//compile error if we run this test
-	//Animal wrongAnimal;
+	// AAnimal wrongAAnimal;
 	return 0;
 }

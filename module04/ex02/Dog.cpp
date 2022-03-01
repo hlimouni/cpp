@@ -4,10 +4,10 @@ Dog::Dog()
 {
 	this->type = "Dog";
 	this->_brain = new Brain();
-	std::cout << "Animal of type '" << this->type << "' is created" << std::endl;
+	std::cout << "AAnimal of type '" << this->type << "' is created" << std::endl;
 }
 
-Dog::Dog( Dog const & copy ) : Animal(copy)
+Dog::Dog( Dog const & copy ) : AAnimal(copy)
 {
         std::cout << "Copy constructor for Dog is called" << std::endl;
 		this->_brain = new Brain();
@@ -26,7 +26,7 @@ Dog  const & Dog::operator=( Dog const & rhs )
 
 Dog::~Dog()
 {
-	std::cout << "Animal of type '" << this->type << "' has been destroyed" << std::endl;
+	std::cout << "AAnimal of type '" << this->type << "' has been destroyed" << std::endl;
 	delete this->_brain;
 }
 

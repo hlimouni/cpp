@@ -13,6 +13,7 @@ int main()
 	{
 		animals[i] = new Dog();
 	}
+
 	//calling makesound() for each object
 	std::cout << std::endl;
 	for (size_t i = 0; i < 6; i++)
@@ -29,6 +30,8 @@ int main()
 	//testing deep copies
 	Dog chiwawa ;
 	Brain aaa ;
+	Cat bisbis;
+	Cat psps = bisbis;
 	std::string copy[100] = {"A", "B", "C"};
 	aaa.setIdeas(copy);
 	chiwawa.setBrain(aaa);

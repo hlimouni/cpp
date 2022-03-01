@@ -6,7 +6,7 @@
 #    By: hlimouni <hlimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:33:12 by hlimouni          #+#    #+#              #
-#    Updated: 2022/02/28 00:53:42 by hlimouni         ###   ########.fr        #
+#    Updated: 2022/03/01 22:48:36 by hlimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,10 @@ CXX=clang++
 CFLAGS=-Wall -Wextra -Werror
 NAME=ex00
 
-HDR=./Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp\
+HDR=./Bureaucrat.hpp \
 
-SRC=./Animal.cpp \
-./Cat.cpp \
-./Dog.cpp \
-./WrongAnimal.cpp \
-./WrongCat.cpp \
-./main.cpp
+SRC=./main.cpp \
+./Bureaucrat.cpp
 
 OBJ=$(SRC:.cpp=.o)
 

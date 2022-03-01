@@ -4,10 +4,10 @@ Cat::Cat()
 {
 	this->type = "Cat";
 	this->_brain = new Brain();
-	std::cout << "Animal of type '" << this->type << "' is created" << std::endl;
+	std::cout << "AAnimal of type '" << this->type << "' is created" << std::endl;
 }
 
-Cat::Cat( Cat const & copy ) : Animal(copy)
+Cat::Cat( Cat const & copy ) : AAnimal(copy)
 {
         std::cout << "Copy constructor for Cat is called" << std::endl;
 		this->_brain = new Brain();
@@ -24,7 +24,7 @@ Cat  const & Cat::operator=( Cat const & rhs )
 
 Cat::~Cat()
 {
-	std::cout << "Animal of type '" << this->type << "' has been destroyed" << std::endl;
+	std::cout << "AAnimal of type '" << this->type << "' has been destroyed" << std::endl;
 	delete this->_brain;
 }
 

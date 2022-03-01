@@ -6,12 +6,12 @@
 #    By: hlimouni <hlimouni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:33:12 by hlimouni          #+#    #+#              #
-#    Updated: 2022/02/06 01:09:27 by hlimouni         ###   ########.fr        #
+#    Updated: 2022/02/28 00:53:50 by hlimouni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX=clang++
-CFLAGS=-Wall -Wextra -Werror -std=c++98
+CFLAGS=-Wall -Wextra -Werror
 NAME=ex01
 
 HDR=./Animal.hpp Cat.hpp Dog.hpp Brain.hpp\
