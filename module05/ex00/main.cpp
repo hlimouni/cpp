@@ -4,9 +4,9 @@ int main()
 {
 	try
 	{
-		Bureaucrat a("lowest", 150);
+		Bureaucrat a("lowest", Bureaucrat::lowestGrade);
 		// Bureaucrat b(0);
-		Bureaucrat c("highest", 1);
+		Bureaucrat c("highest", Bureaucrat::highestGrade);
 		// Bureaucrat e( 151);
 		Bureaucrat f("average", 75);
 

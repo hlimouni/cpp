@@ -5,6 +5,9 @@
 #include <exception>
 #include <string>
 
+#include "Form.hpp"
+class Form;
+
 class Bureaucrat
 {
 
@@ -50,6 +53,9 @@ public:
 
 	static const int lowestGrade = 150;
 	static const int highestGrade = 1;
+
+	void signForm(Form &form);
+	void executeForm(Form const & form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat & Bureaucrat);
