@@ -1,7 +1,8 @@
-#ifndef STRINGREPRESENTATION_H
-#define STRINGREPRESENTATION_H
+#ifndef STRINGREPRESENTATION_HPP
+#define STRINGREPRESENTATION_HPP
 
 #include <iostream>
+#include <iomanip>
 
 class StringRepresentation
 {
@@ -27,23 +28,15 @@ public:
 	StringRepresentation const & operator=(StringRepresentation const & rhs);
     ~StringRepresentation();
 
-	char getChar() const;
-	int  getInt() const;
-	float getFloat() const;
-	double getDouble() const;
-
-	void setChar(char);
-	void setInt(int);
-	void setFloat(float);
-	void setDouble(double);
-
 	void intConversion(const std::string &);
 	void floatConversion(const std::string &);
 	void doubleConversion(const std::string &);
 
-	void represent();
-};
+	void represent() const;
 
-std::ostream &operator<<(std::ostream & os, const StringRepresentation & obj);
+	static bool isInt(const std::string str);
+	static bool isFloat(const std::string str);
+	static bool isDouble(const std::string str);
+};
 
 #endif
