@@ -55,7 +55,7 @@ void StringRepresentation::intConversion(std::string const & str)
 			if (str.length() == 1 && !isdigit(str.front()))
 				this->_intType = str.front();
 			this->_charType = static_cast<char>(_intType);
-			if (_intType >= 32 && _intType <= 127)
+			if (_intType >= 32 && _intType < 127)
 				this->_isCharDisplayable = true;
 		}
 		this->_isFloatPossible = true;
@@ -85,7 +85,7 @@ void StringRepresentation::floatConversion(std::string const & str)
 			{
 				this->_isCharPossible = true;
 				this->_charType = static_cast<char>(_intType);
-				if (_intType >= 32 && _intType <= 127)
+				if (_intType >= 32 && _intType < 127)
 					this->_isCharDisplayable = true;
 			}
 		}
@@ -112,7 +112,7 @@ void StringRepresentation::doubleConversion(std::string const & str)
 				{
 					this->_isCharPossible = true;
 					this->_charType = static_cast<char>(_intType);
-					if (_intType >= 32 && _intType <= 127)
+					if (_intType >= 32 && _intType < 127)
 						this->_isCharDisplayable = true;
 				}
 			}

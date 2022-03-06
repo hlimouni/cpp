@@ -8,7 +8,6 @@ class StringRepresentation
 {
 
 private:
-	std::string _type;
 	char _charType;
 	int _intType;
 	float _floatType;
