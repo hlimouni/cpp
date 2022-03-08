@@ -4,7 +4,7 @@
 #include <iostream>
 
 template <typename T>
-void	printElement(T const &element)
+void	printElement(T const & element)
 {
 	std::cout << element << std::endl;
 }
